@@ -90,6 +90,10 @@
                     <div class="section-title__triangle"></div>
                     <div class="section-title__line"></div>
                 </div>
+                <div class="slide-cards__btns">
+                    <div class="slid-cards__btn"><img src="img/prew.png" alt="prew" class="slide-cards__btn"></div>
+                    <div class="slid-cards__btn"><img src="img/next.png" alt="next" class="slide-cards__btn"></div>
+                </div>
                 <div class="slide-cards">
                     <div class="slide-cards__card">
                         <img src="img/slide_1.png" alt="slide" class="slide-cards__img">
@@ -115,6 +119,10 @@
                     </div>
                     <div class="section-title__triangle"></div>
                     <div class="section-title__line"></div>
+                </div>
+                <div class="slide-cards__btns">
+                    <div class="slid-cards__btn"><img src="img/prew.png" alt="prew" class="slide-cards__btn"></div>
+                    <div class="slid-cards__btn"><img src="img/next.png" alt="next" class="slide-cards__btn"></div>
                 </div>
                 <div class="slide-cards">
                     <div class="slide-cards__card">
