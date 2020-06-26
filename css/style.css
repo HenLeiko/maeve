@@ -200,3 +200,159 @@ footer {
     display: flex;
     justify-content: space-between;
 }
+
+/* film */
+
+.film {
+    padding: 50px 0;
+}
+
+.film__inner {
+    display: flex;
+    justify-content: space-between;
+}
+
+.film__info {
+    margin-left: 50px;
+}
+.title__spoiler,
+.title {
+    justify-content: space-between;
+    display: flex;
+    color: #fff;
+    font-size: 18px;
+    font-family: 'Roboto Slab', serif;
+    background: #7f0030;
+    padding: 10px 10px 10px 10px;
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.wipe-btn__img {
+    cursor: pointer;
+    vertical-align: middle;
+    width: 40px;
+    margin-bottom: 2px;
+    filter: invert();
+}
+
+.wipe-btn__btn {
+    display: flex;
+    margin: auto 0;
+    justify-content: center;
+    justify-items: center;
+    position: absolute;
+}
+
+/* modal window */
+
+.modal {
+    display: none;
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    padding-top: 25vh; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+
+.modal-content {
+    position: relative;
+    margin: auto;
+    padding: 0;
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+
+.close {
+    color: black;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close__block {
+    margin-top: 15px;
+    margin-bottom: 30px;
+}
+
+.form {
+    margin: 0 auto;
+    width: 450px;
+    padding: 0 32px 32px 32px;
+    border: 1px solid #e0e0e0;
+    background: #ffffff;
+    border-radius: 7px;
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
+    box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
+  }
+  
+  .form__title {
+    text-align: center;
+    margin: 0 0 32px 0;
+    font-weight: normal;
+  }
+  
+  .form__group {
+    position: relative;
+    margin-bottom: 32px;
+  }
+  
+  .form__input {
+    width: 100%;
+    padding: 0 0 10px 0;
+    border: none;
+    border-bottom: 1px solid #e0e0e0;
+    background: transparent;
+    outline: none;
+  }
+  
+  
+  
+  .form__button {
+    border: 1px solid #9c9b9b;
+    background: transparent;
+    border-radius: 15px;
+    width: 150px;
+    height: 35px;
+  }
+  
+  .button {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .form__link_register {
+    margin-top: 10px;
+    justify-content: flex-end;
+    display: flex;
+    text-decoration: none;
+    direction: none;
+    color: black;
+  }
+  
+  .remember {
+    margin-top: 20px;
+    margin-right: 10px;
+  }
