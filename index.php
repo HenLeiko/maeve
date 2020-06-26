@@ -12,6 +12,42 @@
 
 <body>
     <header>
+        <div id="modal" class="modal">
+            <div class="modal-content">
+
+                    <form action="javascript:void(0)" method="POST" class="form">
+                        <div class="close__block">
+                            <span class="close">&times;</span>
+                        </div>
+                        <h1 class="form__title">Регистрация</h1>
+                        <div class="form__group">
+                            <input type="email" class="form__input" name="email" placeholder="Почта">
+                        </div>
+                        <div class="form__group">
+                            <input type="text" class="form__input" name="login" placeholder="Логин">
+                        </div>
+                        <div class="form__group">
+                            <input type="password" class="form__input" name="password" placeholder="Пароль">
+                        </div>
+                        <div class="form__group">
+                            <input type="password" class="form__input" name="repeat-password" placeholder="Повторите пароль">
+                        </div>
+                        <div class="button">
+                            <button class="form__button" onclick="register()" name="reg">Регистрация</button>
+                        </div>
+                        <div class="form__remember">
+                            <input type="checkbox" name="remember" class="remember" id="remember">Запомнить</div>
+                        <div class="error">
+                            <p><a class="err"><?=@array_shift($error)?></a></p>
+                        </div>
+                        <div class="form__link">
+
+                            <a href="register.php" class="form__link_register">Регистрация</a>
+                        </div>
+                    </form>
+                </div>
+
+        </div>
         <nav>
             <div class="container">
                 <div class="nav__inner">
@@ -19,7 +55,7 @@
                     <a href="" class="nav__link">Категории</a>
                     <a href="" class="nav__link">Топ 100 фильмов</a>
                     <input type="search" name="nav-search" placeholder="Поиск" id="search" class="nav__search">
-                    <input type="submit" value="Вход/Регистрация" class="nav__btn">
+                    <input type="submit" value="Вход/Регистрация" id="register" class="nav__btn">
                 </div>
             </div>
         </nav>
@@ -31,6 +67,9 @@
             </div>
         </div>
     </header>
+
+
+
     <main>
         <div class="films-tile">
             <div class="container">
@@ -173,6 +212,7 @@
             </div>
         </div>
     </footer>
+    <script src="js/script.js"></script>
 </body>
 
 </html>
