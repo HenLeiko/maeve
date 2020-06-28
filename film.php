@@ -1,16 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+session_start();
+require 'db.php';
+include 'wrigthlog.php';
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto+Slab:wght@400;500&display=swap"
-        rel="stylesheet">
-</head>
 
-<body>
+if (isset($_GET['exit'])) {
+    $text = 'Выход пользователя: '. $_SESSION['login'];
+    session_destroy();
+    $user = R::findOne('users', 'login = ?', [$_SESSION['login']]);
+    $user->status = 'nactive';
+    R::store($user);
+    logFile($text);
+    header('Location: index.php');
+}
+?>
 <!DOCTYPE html>
 <html lang="ru">
 
