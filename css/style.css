@@ -9,6 +9,10 @@ a {
     color: #fff;
 }
 
+.hidden {
+    display: none;
+}
+
 .container {
     max-width: 1170px;
     margin: 0 auto;
@@ -20,6 +24,7 @@ a {
 nav {
     background: #7f0030;
     font-size: 18px;
+    z-index: 100;
     font-family: 'Roboto Slab', serif;
     padding: 20px 0;
 }
@@ -28,6 +33,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    z-index: 20;
 }
 
 .nav__logo {
@@ -42,6 +48,43 @@ nav {
     padding-left: 5px;
 }
 
+.submenu {
+    display: none;
+    position: absolute;
+    text-align: center;
+    padding: 23px 5px 5px 5px;
+    background: #7f0030;
+    list-style: none;
+    top: 100%;
+    left: 0;
+    width: 110%;
+    z-index: 1;
+    -webkit-transition: 0.5s ease-in-out;
+    -moz-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
+    transition: 0.5s ease-in-out;
+
+}
+
+.submenu li:not(:last-child) {
+    padding-bottom: 10px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.267);
+}
+
+.submenu li:not(:first-child) {
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.sub {
+    position: relative;
+    padding: 0 10px;
+}
+
+.sub ul:hover .submenu{
+    display: block;
+}
+
 .nav__btn {
     height: 25px;
     width: 200px;
@@ -52,6 +95,25 @@ nav {
     font-size: 18px;
     font-family: 'Roboto Slab', serif;
     color: #fff;
+}
+
+.nav__user {
+    display: flex;
+    color: #fff;
+}
+
+.nav__user-name {
+    display: flex;
+    margin: auto 0;
+    margin-right: 20px;
+    font-size: 18px;
+    font-family: 'Roboto Slab', serif;
+}
+
+.nav__img {
+    height: 50px;
+    background: #000;
+    border-radius: 50%;
 }
 
 /* banner */
@@ -178,6 +240,9 @@ footer {
     background: #7f0030;
     color: #fff;
     padding: 50px 0;
+    /* position: absolute;
+    bottom: 0;
+    width: 100%; */
 }
 
 .footer__img {
@@ -246,20 +311,33 @@ footer {
 
 /* modal window */
 
-.modal {
+.register {
     display: none;
-    position: fixed; /* Stay in place */
-    z-index: 1000; /* Sit on top */
-    padding-top: 25vh; /* Location of the box */
+    position: fixed; 
+    z-index: 1000; 
+    padding-top: 25vh; 
     left: 0;
     top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4);
 }
 
+.login {
+    display: none;
+    position: fixed; 
+    z-index: 1000; 
+    padding-top: 25vh; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4);
+}
 
 .modal-content {
     position: relative;
@@ -283,13 +361,15 @@ footer {
 }
 
 
-.close {
+.close-login,
+.close-register {
     color: black;
     float: right;
     font-size: 28px;
     font-weight: bold;
     cursor: pointer;
 }
+
 
 .close__block {
     margin-top: 15px;
@@ -328,8 +408,6 @@ footer {
     outline: none;
   }
   
-  
-  
   .form__button {
     border: 1px solid #9c9b9b;
     background: transparent;
@@ -343,12 +421,14 @@ footer {
     justify-content: center;
   }
   
-  .form__link_register {
+  .form__link-register,
+  .form__link-login {
     margin-top: 10px;
     justify-content: flex-end;
     display: flex;
     text-decoration: none;
     direction: none;
+    cursor: pointer;
     color: black;
   }
   
@@ -356,3 +436,175 @@ footer {
     margin-top: 20px;
     margin-right: 10px;
   }
+
+  .error {
+      padding: 15px 0;
+      color: #000;
+  }
+
+  /* profile */
+
+  .user-info__inner {
+      margin: 25px 0;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+  }
+
+  .user-info__left {
+      background: #d4d4d450;
+      max-width: 300px;
+      width: 100%;
+      max-height: 360px;
+  }
+
+.user-info__status {
+    text-align: center;
+    background: #7f0030;
+    font-family: 'Roboto Slab', serif;
+    font-weight: normal;
+    color: #fff;
+    padding: 10px;
+}
+
+.user-info__img {
+      height: 150px;
+      border-radius: 50%;
+      display: block;
+      margin: 25px auto;
+}
+
+.user-info__user-name {
+     text-align: center;
+     font-family: 'Roboto Slab', serif;
+     font-weight: bold;
+     margin-bottom: 15px;
+}
+
+.user-info__ps {
+     text-align: center;
+     margin-bottom: 25px;
+}
+
+.user-info__title {
+    font-family: 'Roboto Slab', serif;
+     display: flex;
+     justify-content: space-between;
+     padding: 10px 25px;
+     background: #7f0030;
+     color: #fff;
+}
+
+.user-info__right {
+    width: 800px;
+    background: #d4d4d450;
+}
+
+.user-info__item {
+    
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #7f003146;
+}
+
+.user-info__user-stats {
+    margin-top: 25px;
+    padding: 0 25px;
+}
+
+.user-info__img-mini {
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 25px;
+}
+
+.user-info__news {
+    padding: 10px 25px;
+    display: flex;
+}
+
+.user-info__news-desc {
+    display: flex;
+    margin: auto 0;
+}
+
+/* admin panel */
+
+.admin-panel {
+    font-family: 'Roboto Slab', serif;
+    background: #7f00311f;
+    padding: 10px 200px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.admin-panel__item {
+    cursor: pointer;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+.admin-list {
+    display: none;
+    margin-bottom: 25px;
+}
+
+.log-list {
+    display: none;
+    margin-bottom: 25px;
+}
+
+.user-list {
+    display: none;
+    margin-bottom: 25px;
+}
+
+.user-list__title {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 25px;
+}
+.log-list__title {
+    text-align: center;
+    margin-top: 25px;
+}
+
+.log-item {
+    padding: 10px 0;
+}
+
+.list__id {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-list__tit th{
+    padding: 10px 0;
+}
+
+.user-list__tit {
+    background: #7f00311f;
+}
+
+.user-list__user:nth-child(2n){
+    background: #7f00311f;
+}
+
+.log-item:nth-child(2n) {
+    background: #7f00311f;
+}
+
+.user-list__user {
+    width: 100%;
+}
+
+.user-list__user td{
+    padding: 10px;
+}
+
+.user-list__title table{
+    width: 80%;
+    text-align: center;
+}
