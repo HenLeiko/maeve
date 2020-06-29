@@ -1,48 +1,64 @@
-let loginlinkopen = document.querySelector('.form__link-login');
-let login_open = document.querySelector('#auth');
-let registerlinkopen = document.querySelector('.form__link-register');
-let closelogin = document.querySelector('.close-login');
-let closeregister = document.querySelector('.close-register');
 
-closelogin.onclick = function () {
+
+function closelogin() {
     document.querySelector('#login').style.display = 'none';
 }
 
-registerlinkopen.onclick = function () {
+function auth() {
+    document.querySelector('#login').style.display = 'block';
+}
+
+function reg() {
     document.querySelector('#login').style.display = 'none';
     document.querySelector('#register').style.display = 'block';
 }
 
-loginlinkopen.onclick = function () {
+function login() {
     document.querySelector('#register').style.display = 'none';
     document.querySelector('#login').style.display = 'block';
 }
 
-closeregister.onclick = function () {
+function closeregister() {
     document.querySelector('#register').style.display = 'none';
 }
-
-login_open.onclick = function () {
-    document.querySelector('#login').style.display = 'block';
+function user_settings() {
+    document.querySelector('.user-settings').style.display = 'block'
 }
+
 
 function userlist() {
-    document.querySelector('.admin-list').style.display = 'none';
-    document.querySelector('.log-list').style.display = 'none';
-    document.querySelector('.user-list').style.display = 'block';
+    document.querySelector('.log-list').style.maxHeight = '0px';
+    document.querySelector('.admin-list').style.maxHeight = '0px';
+    setTimeout(function(){ 
+    document.querySelector('.log-list').style.position = 'absolute';
+    document.querySelector('.admin-list').style.position = 'absolute';
+    document.querySelector('.user-list').style.position = 'relative';
+    document.querySelector('.user-list').style.maxHeight = '600px';
+    },500);
 }
 
 function adminlist() {
-    document.querySelector('.user-list').style.display = 'none';
-    document.querySelector('.log-list').style.display = 'none';
-    document.querySelector('.admin-list').style.display = 'block';
+    document.querySelector('.user-list').style.maxHeight = '0px';
+    document.querySelector('.log-list').style.maxHeight = '0px';
+    setTimeout(function(){ 
+    document.querySelector('.user-list').style.position = 'absolute';
+    document.querySelector('.log-list').style.position = 'absolute';
+    document.querySelector('.admin-list').style.position = 'relative';
+    document.querySelector('.admin-list').style.maxHeight = '600px';
+    },500);
 }
 
-function log() {
-    document.querySelector('.user-list').style.display = 'none';
-    document.querySelector('.admin-list').style.display = 'none';
-    document.querySelector('.log-list').style.display = 'block';
+function logs() {
+    document.querySelector('.user-list').style.maxHeight = '0px';
+    document.querySelector('.admin-list').style.maxHeight = '0px';
+    setTimeout(function(){ 
+    document.querySelector('.user-list').style.position = 'absolute';
+    document.querySelector('.admin-list').style.position = 'absolute';
+    document.querySelector('.log-list').style.position = 'relative';
+    document.querySelector('.log-list').style.maxHeight = '600px';
+},500);
 }
+
 
 function register() {
 
