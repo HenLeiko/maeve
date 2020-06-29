@@ -547,19 +547,27 @@ table {
 }
 
 .admin-list {
-    display: none;
+    position: absolute;
+    overflow: hidden;    
+    transition: all .5s ease;
+    max-height:0px;
     margin-bottom: 25px;
 }
 
 .log-list {
-    display: none;
+    position: absolute;
+    overflow: hidden;    
+    transition: all .5s ease;
+    max-height:0px;
     margin-bottom: 25px;
 }
 
 .user-list {
-    display: none;
     margin-bottom: 25px;
+    overflow: hidden;    
+    transition: all .5s ease;
 }
+
 
 .user-list__title {
     display: flex;
@@ -607,4 +615,342 @@ table {
 .user-list__title table{
     width: 80%;
     text-align: center;
+}
+
+/* sub cards */
+.sub__sub-title,
+.sub__title {
+    font-family: 'Roboto Slab', serif;
+    text-align: center;
+    color: #7f0030;
+}
+
+.sub__title{
+    font-size: 42px;
+    margin: 40px 0;
+}
+
+.sub__sub-title{
+    border: 2px dashed #7f0030;
+    font-size: 18px;
+    max-width: 550px;
+    margin: 0 auto;
+    padding: 10px 0;
+    margin-bottom: 30px;
+}
+
+.sub-cards {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.sub-cards__card {
+    border: 5px solid #7f0030;
+    border-radius: 40px;
+    width: 25%;
+    position: relative;
+}
+
+.card__title {
+    text-align: center;
+    font-family: 'Roboto Slab', serif;
+    font-weight: bold;
+    padding: 20px 0;
+}
+
+.price {
+    font-family: 'Roboto Slab', serif;
+    font-size: 24px;
+    background: #7f0030;
+    text-align: center;
+    color: #fff;
+    padding: 20px 0;
+}
+
+.card__price {
+    margin-bottom: 10px;
+}
+
+.card__desc {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.card-buy {
+    font-family: 'Roboto Slab', serif;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: 35%;
+    bottom: 0;
+    margin: 0 auto;
+    background-color: transparent;
+    border: 1px solid #7f0030;
+    border-radius: 7px;
+    padding: 5px 10px;
+    margin-bottom: 20px;
+}
+
+.card__desc-cont {
+    padding: 20px 0 40px 0;
+}
+
+.card__employee {
+    padding: 0 0 35px 0;
+}
+
+/* select box */
+
+.select-box {
+    position: relative;
+    display: block;
+    width: 100%;
+
+    font-family: 'Roboto Slab', serif;
+    font-size: 16px;
+    color: #60666d;
+}
+
+@media (min-width: 768px) {
+    .select-box {
+      width: 40%;
+    }
+}
+
+@media (min-width: 992px) {
+    .select-box {
+      width: 20%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .select-box {
+      width: 15%;
+    }
+}
+
+.select-box__current {
+    position: relative;
+    box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    outline: none;
+}
+
+.select-box__current:focus + .select-box__list {
+    opacity: 1;
+    -webkit-animation-name: none;
+    animation-name: none;
+}
+
+.select-box__current:focus + .select-box__list .select-box__option {
+    cursor: pointer;
+}
+
+.open-user-settings:focus  .open-block {
+    -webkit-transform: translateY(-50%) rotate(180deg);
+    transform: translateY(-50%) rotate(180deg);
+    outline-style: none;
+    outline-width: 0px !important;
+    outline-color: none !important;
+    outline: 0;
+    outline: none;
+}
+
+.open-user-settings::-moz-focus-inner {
+    outline-style: none;
+    outline-width: 0px !important;
+    outline-color: none !important;
+  }
+
+.select-box__current:focus .select-box__icon {
+    -webkit-transform: translateY(-50%) rotate(180deg);
+    transform: translateY(-50%) rotate(180deg);
+}
+
+.select-box__icon {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    width: 20px;
+    opacity: 0.3;
+    -webkit-transition: 0.2s ease;
+    transition: 0.2s ease;
+}
+
+
+.select-box__value {
+    display: -webkit-box;
+    display: flex;
+}
+
+.select-box__input {
+    display: none;
+}
+
+.select-box__input:checked + .select-box__input-text {
+    display: block;
+}
+
+.select-box__input-text {
+    display: none;
+    width: 100%;
+    margin: 0;
+    padding: 5px;
+    background-color: #fff;
+}
+
+.select-box__list {
+    position: absolute;
+    width: 100%;
+    padding: 0;
+    list-style: none;
+    opacity: 0;
+    -webkit-animation-name: HideList;
+    animation-name: HideList;
+    -webkit-animation-duration: 0.5s;
+    animation-duration: 0.5s;
+    -webkit-animation-delay: 0.5s;
+    animation-delay: 0.5s;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    -webkit-animation-timing-function: step-start;
+    animation-timing-function: step-start;
+    box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.1);
+}
+
+.select-box__option {
+    display: block;
+    padding: 15px;
+    background-color: #fff;
+}
+
+.select-box__option:hover, .select-box__option:focus {
+    color: #546c84;
+    background-color: #fbfbfb;
+}
+  
+@-webkit-keyframes HideList {
+    from {
+      -webkit-transform: scaleY(1);
+              transform: scaleY(1);
+    }
+
+    to {
+      -webkit-transform: scaleY(0);
+              transform: scaleY(0);
+    }
+}
+  
+@keyframes HideList {
+    from {
+      -webkit-transform: scaleY(1);
+              transform: scaleY(1);
+    }
+    to {
+      -webkit-transform: scaleY(0);
+              transform: scaleY(0);
+    }
+}
+  
+  /* user-settings */
+
+.user-settings__age,
+.user-settings__sex {
+    background: rgb(241, 241, 241);
+    font-family: 'Roboto Slab', serif;
+    display: flex;
+    padding: 20px;
+}
+
+.sex {
+    text-align: center;
+    padding: 5px;
+    margin-right: 10px;
+}
+
+.user-settings{
+    background-color:none;
+    display: none;
+}
+
+.user-settings::-moz-focus-inner {
+    border: 0;
+    outline: none;
+  }
+
+.user-settings__inner {
+    -webkit-animation-name: toped;
+    -webkit-animation-duration: 0.5s;
+    animation-name: animatetop;
+    animation-duration: 0.5s
+}
+
+@-webkit-keyframes toped {
+    from {top:-500px;} 
+    to {top:0;}
+}
+
+@keyframes toped {
+    from {top:-1000px;}
+    to {top:0;}
+}
+
+
+
+.user-settings__age {
+    margin-top: 10px;
+}
+
+.age {
+    margin-right: 10px;
+    padding: 5px 0;
+}
+
+.user-settings__sex {
+    width: 100%;
+}
+
+.age__input{
+    font-family: 'Roboto Slab', serif;
+    box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.1);
+    border: none;
+    background-color: #fff;
+    border-bottom: 1px solid #546c84;
+    color: #546c84;
+    padding: 7px 0 7px 5px;
+}
+
+input::-webkit-input-placeholder {
+    font-family: 'Roboto Slab', serif;
+    font-size: 16px;
+    color: #546c84;
+}
+
+input:-moz-placeholder {
+    font-family: 'Roboto Slab', serif;
+    font-size: 16px;
+    color: #546c84;
+}
+
+.open-user-settings {
+    display: flex;
+    background: rgb(241, 241, 241);
+    font-family: 'Roboto Slab', serif;
+   padding: 20px;
+}
+
+.open-block {
+    position: absolute;
+    right: 0;
+    margin-right: 20px;
+    margin-top: 5;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    width: 20px;
+    opacity: 0.3;
+    -webkit-transition: 0.2s ease;
+    transition: 0.2s ease;
 }
