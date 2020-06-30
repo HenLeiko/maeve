@@ -1,5 +1,5 @@
 <?php
-$text = fopen("logFile.txt", "r");
+$text = fopen("./log/logFile.txt", "r");
 $log = null;
 if ($text) {
     while (($buffer = fgets($text)) !== false) {

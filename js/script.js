@@ -21,8 +21,13 @@ function login() {
 function closeregister() {
     document.querySelector('#register').style.display = 'none';
 }
+
 function user_settings() {
     document.querySelector('.user-settings').style.display = 'block'
+}
+
+function admin_settings() {
+    document.querySelector('.admin-settings__emp').style.display = 'block'
 }
 
 
@@ -111,6 +116,7 @@ document.querySelector('#log').onclick = function logina() {
             let data = request.responseText;
             if (data === '200') {
                 location.reload()
+                console.log(data);
                 return;
             }
             document.querySelector('.error').innerHTML = data;
@@ -119,3 +125,34 @@ document.querySelector('#log').onclick = function logina() {
      
     request.send(params);
 }
+
+
+document.querySelector('#trial').onclick = function trial() {
+    console.log('q');
+    let subscribe = 'trial';
+    
+    let request = new XMLHttpRequest();
+    let url = "upload.php";
+
+    let params = "subscribe=" + subscribe;
+
+    request.open("POST", url, true);
+    request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+     
+    request.addEventListener("readystatechange", () => {
+    
+        if(request.readyState === 4 && request.status === 200) {       
+            console.log(request.responseText);
+            let data = request.responseText;
+            if (data === '200') {
+                location.reload()
+                console.log(data);
+                return;
+            }
+            document.querySelector('.error').innerHTML = data;
+        }
+    });
+     
+    request.send(params);
+}
+

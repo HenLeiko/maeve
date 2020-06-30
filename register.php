@@ -6,7 +6,6 @@ date_default_timezone_set('UTC');
 $data = $_POST;
 $err = [];
 $date = date('l jS \of F Y');
-print_r($data);
 require 'validation.php';
 
 if (empty($err)) {
@@ -16,12 +15,16 @@ if (empty($err)) {
     $users->login = $data['login'];
     $users->password = $data['password'];
     $users->reg_date = $date;
-    $users->status = 'active';
+    $users->status = 'active'; 
     $users->rol = 'Пользователь';
 
     $profile->user = $users;
     $profile->reg_date = $date;
     $profile->last_online = $date;
+    $profile->sex = 'не указано';
+    $profile->age = 'не указано';
+    $profile->like_film = 'не указано';
+    $profile->avatar = 'defult.png';
     R::store($users);
     R::store($profile);
     $user = R::findOne('users', 'login = ?', [$data['login']]);

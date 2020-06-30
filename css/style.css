@@ -112,6 +112,7 @@ nav {
 
 .nav__img {
     height: 50px;
+    width: 50px;
     background: #000;
     border-radius: 50%;
 }
@@ -125,7 +126,10 @@ nav {
 
 /* tile */
 
-
+.tile__img {
+    height: 209px;
+    width: 209px;
+}
 
 .films-tile__inner {
     padding: 70px 0;
@@ -469,6 +473,7 @@ footer {
 
 .user-info__img {
       height: 150px;
+      width: 150px;
       border-radius: 50%;
       display: block;
       margin: 25px auto;
@@ -856,7 +861,7 @@ table {
 }
   
   /* user-settings */
-
+.open-janr-settings.
 .user-settings__age,
 .user-settings__sex {
     background: rgb(241, 241, 241);
@@ -872,8 +877,14 @@ table {
 }
 
 .user-settings{
+    position: relative;
+    margin-top: 10px;
     background-color:none;
     display: none;
+}
+
+.open-janr-settings {
+    margin-top: 10px;
 }
 
 .user-settings::-moz-focus-inner {
@@ -935,13 +946,22 @@ input:-moz-placeholder {
     color: #546c84;
 }
 
+.open-admin-settings,
 .open-user-settings {
     display: flex;
+    
     background: rgb(241, 241, 241);
     font-family: 'Roboto Slab', serif;
    padding: 20px;
 }
 
+.open-user-settings {
+    margin-top: 10px;
+}
+
+.open-admin-settings {
+    margin-top: 10px;
+}
 .open-block {
     position: absolute;
     right: 0;
@@ -953,4 +973,26 @@ input:-moz-placeholder {
     opacity: 0.3;
     -webkit-transition: 0.2s ease;
     transition: 0.2s ease;
+}
+
+
+.admin-settings__emp {
+    display: none;
+    -webkit-animation-name: toped;
+    -webkit-animation-duration: 0.5s;
+    animation-name: animatetop;
+    animation-duration: 0.5s
+}
+
+.save {
+    margin-top: 10px;
+    float: right;
+    padding: 5px;
+    border: 2px solid #7f0030;
+    color: #7f0030;
+    margin-bottom: 10px;
+}
+
+.clear-fix {
+    clear: both;
 }

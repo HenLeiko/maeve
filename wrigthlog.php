@@ -1,6 +1,6 @@
 <?php
     function logFile($textLog) {
-        $file = 'logFile.txt';
+        $file = 'log/logFile.txt';
         $text = date('Y-m-d H:i:s') . ' '; 
         $text .= $textLog;
         $text .= "\n";
