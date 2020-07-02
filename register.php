@@ -32,7 +32,7 @@ if (empty($err)) {
     $_SESSION['id'] = $user['id'];
     $_SESSION['login'] = $data['login'];
     $_SESSION['status'] = 'active';
-    
+    $_SESSION['avatar'] = 'defult.png';
     $text = 'Регистрация успешно пройдена пользователем: '. $_SESSION['login'];
     logFile($text);
     $code = 201;

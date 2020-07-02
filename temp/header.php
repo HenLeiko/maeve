@@ -50,7 +50,7 @@
                     </div>
                     <div class="form__remember">
                         <input type="checkbox" name="remember" class="remember" id="remember">Запомнить</div>
-                    <div class="error">
+                    <div class="log-error">
                     </div>
                     <div class="form__link">
                         <div class="form__link-register" onclick="reg();">Регистрация</div>

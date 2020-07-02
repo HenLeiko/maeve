@@ -37,6 +37,21 @@ if (empty($_SESSION['login'])){
 <body>
 <?php include 'temp/header.php' ?>
 
+<div id="wall" class="wall">
+    <div class="modal-content">
+        <form action="javascript:void(0)" method="POST" class="form__wall">
+            <div class="close__block">
+                <span class="close-login" onclick="closelogin();">&times;</span>
+            </div>
+            <h1 class="form__title">Создание записи</h1>
+            <textarea name="msg_desc" id="msg_desc" class="wall__textarea"></textarea>
+            <div class="button">
+                <button class="form__button" id="log" name="log">Создать запись</button>
+            </div>
+        </form>
+    </div>
+
+</div>
 
         <main>
             <div class="user-info">
@@ -57,23 +72,23 @@ if (empty($_SESSION['login'])){
                             <div class="user-info__user-stats">
                                 <div class="user-info__item">
                                     <div class="user-info__item-left">Дата регистрации:</div>
-                                    <div class="user-info__item-right"></div>
+                                    <div class="user-info__item-right"><?=$profile['reg_date']?></div>
                                 </div>
                                 <div class="user-info__item">
                                     <div class="user-info__item-left">Последняя активность:</div>
-                                    <div class="user-info__item-right"></div>
+                                    <div class="user-info__item-right"><?=$profile['last_online']?></div>
                                 </div>
                                 <div class="user-info__item">
                                     <div class="user-info__item-left">Пол:</div>
-                                    <div class="user-info__item-right"></div>
+                                    <div class="user-info__item-right"><?=$profile['sex']?></div>
                                 </div>
                                 <div class="user-info__item">
                                     <div class="user-info__item-left">Возраст:</div>
-                                    <div class="user-info__item-right"></div>
+                                    <div class="user-info__item-right"><?=$profile['age']?></div>
                                 </div>
                                 <div class="user-info__item">
                                     <div class="user-info__item-left">Любимый фильм:</div>
-                                    <div class="user-info__item-right"></div>
+                                    <div class="user-info__item-right"><?=$profile['like_film']?></div>
                                 </div>
                             </div>
                             <div class="user-info__title">
@@ -125,6 +140,7 @@ if (empty($_SESSION['login'])){
                                     <th>Пароль</th>
                                     <th>Статус</th>
                                     <th>Роль</th>
+                                    <th>Подписка</th>
                                 </tr>
                             </thead>
                             <tbody>

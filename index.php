@@ -41,15 +41,32 @@ if (isset($_GET['exit'])) {
             <div class="container">
                 <div class="films-tile__inner">
                     <div class="tile">
-                        <?php include 'temp/film-tile.php'; ?>
-
+<!--                        --><?php //include 'temp/film-tile.php'; ?>
+                        <div class="tile__item">
+                            <img src="img/avatar.png" alt="film-icon" class="tile__img">
+                        </div>
+                        <div class="tile__item">
+                            <img src="img/avatar.png" alt="film-icon" class="tile__img">
+                        </div>
+                        <div class="tile__item">
+                            <img src="img/avatar.png" alt="film-icon" class="tile__img">
+                        </div>
+                        <div class="tile__item">
+                            <img src="img/avatar.png" alt="film-icon" class="tile__img">
+                        </div>
+                        <div class="tile__item">
+                            <img src="img/avatar.png" alt="film-icon" class="tile__img">
+                        </div>
+                        <div class="tile__item">
+                            <img src="img/avatar.png" alt="film-icon" class="tile__img">
+                        </div>
                     </div>
                     <div class="side-bar">
                         <div class="side-bar__item">
-                            <div class="side-bar__title">Lorem, ipsum:</div>
+                            <div class="side-bar__title">Чарт месяца:</div>
                             <ul class="side-bar__list">
-                                <li class="side-bar__link"><a href="">Lorem</a></li>
-                                <li class="side-bar__link"><a href="">Lorem</a></li>
+                                <li class="side-bar__link"><a href="">Thor</a></li>
+                                <li class="side-bar__link"><a href="">Kill bill!</a></li>
                                 <li class="side-bar__link"><a href="">Lorem</a></li>
                                 <li class="side-bar__link"><a href="">Lorem</a></li>
                                 <li class="side-bar__link"><a href="">Lorem</a></li>
@@ -84,33 +101,7 @@ if (isset($_GET['exit'])) {
                     <div class="slid-cards__btn"><img src="img/next.png" alt="next" class="slide-cards__btn"></div>
                 </div>
                 <div class="slide-cards">
-                    <div class="slide-cards__card">
-                        <img src="img/slide_1.png" alt="slide" class="slide-cards__img">
-                        <div class="slide-cards__desc">Lorem ipsum dolor sit amet.</div>
-                    </div>
-                    <div class="slide-cards__card">
-                        <img src="img/slide_1.png" alt="slide" class="slide-cards__img">
-                        <div class="slide-cards__desc">Lorem ipsum dolor sit amet.</div>
-                    </div>
-
-
-                    <?php 
-                        @$login = $_SESSION['login'];
-                        if (isset($_SESSION['login']) && $user['rol'] == 'Администратор'):
-                    ?>
-                    <div class="slide-cards__card">
-                        <img src="img/slide_1.png" alt="slide" class="slide-cards__img">
-                        <div class="slide-cards__desc">Хуй</div>
-                    </div>
-                    <?php
-                        endif;
-                        if (@$user['rol'] !== 'Администратор' || !isset($_SESSION['login'])):
-                    ?>
-                    <div class="slide-cards__card">
-                        <img src="img/slide_1.png" alt="slide" class="slide-cards__img">
-                        <div class="slide-cards__desc">Lorem ipsum dolor sit amet.</div>
-                    </div>
-                    <?php endif; ?>
+                    <?php include_once 'temp/film-slide.php';?>
 
 
                 </div>
@@ -130,19 +121,22 @@ if (isset($_GET['exit'])) {
                     <div class="slid-cards__btn"><img src="img/prew.png" alt="prew" class="slide-cards__btn"></div>
                     <div class="slid-cards__btn"><img src="img/next.png" alt="next" class="slide-cards__btn"></div>
                 </div>
-                <div class="slide-cards">
-                    <div class="slide-cards__card">
-                        <img src="img/slide_1.png" alt="slide" class="slide-cards__img">
-                        <div class="slide-cards__desc">Lorem ipsum dolor sit amet.</div>
+                    <div class="slide-cards">
+                        <div class="slide-cards__card">
+                            <img src="img/slide_1.png" alt="slide" class="slide-cards__img">
+                            <div class="slide-cards__desc">Lorem ipsum dolor sit amet.</div>
+                        </div>
+                        <div class="slide-cards__card">
+                            <img src="img/slide_1.png" alt="slide" class="slide-cards__img">
+                            <div class="slide-cards__desc">Lorem ipsum dolor sit amet.</div>
+                        </div>
+                        <div class="slide-cards__card">
+                            <img src="img/slide_1.png" alt="slide" class="slide-cards__img">
+                            <div class="slide-cards__desc">Lorem ipsum dolor sit amet.</div>
+                        </div>
                     </div>
-                    <div class="slide-cards__card">
-                        <img src="img/slide_1.png" alt="slide" class="slide-cards__img">
-                        <div class="slide-cards__desc">Lorem ipsum dolor sit amet.</div>
-                    </div>
-                    <div class="slide-cards__card">
-                        <img src="img/slide_1.png" alt="slide" class="slide-cards__img">
-                        <div class="slide-cards__desc">Lorem ipsum dolor sit amet.</div>
-                    </div>
+
+
                 </div>
             </div>
         </div>

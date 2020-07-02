@@ -120,6 +120,10 @@ if (isset($_GET['exit'])) {
                         <label for="avatar" class="age">Описание фильма:</label>
                         <textarea name="film_desc" id="" cols="30" rows="10"></textarea>
                     </div>
+                    <div class="user-settings__age">
+                        <label for="avatar" class="age">Описание фильма на главной:</label>
+                        <textarea name="film_desc-mini" id="" cols="30" rows="10"></textarea>
+                    </div>
                     <input type="submit" class="save" value="Сохранить">
                 </form>
             </div>

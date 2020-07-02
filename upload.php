@@ -6,18 +6,18 @@ date_default_timezone_set('UTC');
 $date = date('l jS \of F Y');
 
 if (!empty($_FILES['mini']) && !empty($_FILES['side']) && !empty($_POST['film_title']) && !empty($_POST['film_desc'])){
-    uploadfilm($_FILES['mini'], $_FILES['side'], $_POST['film_title'], $_POST['film_desc']);
+    uploadfilm($_FILES['mini'], $_FILES['side'], $_POST['film_title'], $_POST['film_desc-mini'], $_POST['film_desc']);
+    var_dump($_POST);
 } 
 
-
-
-
-about_user($_SESSION['id'], $_POST['sex'], $_POST['age'], $_POST['film'], $_FILES['avatar']);
-
-
-if(isset($_POST['subscribe'])){
-    subscribe($_POST['subscribe'], $date);
+if (isset($_POST['subscribe']) && isset($_SESSION['login'])){
+    sub($_POST['subscribe'], $date);
 }
+
+if (!empty($_POST['sex']) || !empty($_POST['age']) || !empty($_POST['film']) || !empty($_FILES['avatar'])) {
+    about_user($_POST['sex'], $_POST['age'], $_POST['film'], $_FILES['avatar']);
+}
+
 
 function subscribe($type, $date) {
     $user = R::findOne('users', 'login = ?', [$_SESSION['login']]);
@@ -26,15 +26,14 @@ function subscribe($type, $date) {
     R::store($user);
 }
 
-function uploadfilm($mini, $side, $title, $desc) {
+function uploadfilm($mini, $side, $title, $mini_desc, $desc) {
     $film = R::dispense('films');
     $film->title = $title;
+    $film->mini_desc = $mini_desc;
     $film->desc = $desc;
     $film->side = uploadside($side);
     $film->mini = uploadmini($mini);
     R::store($film);
-    var_dump(uploadmini($mini));
-
 }
 function uploadside($side) {
 
@@ -89,4 +88,13 @@ function save_avatar($avatar) {
     echo '</pre>';
     move_uploaded_file($avatar["tmp_name"],"resource/avatars/" . $new_name_avatar);
     return $new_name_avatar;
+}
+
+function sub($sub, $date) {
+    $login = $_SESSION['login'];
+    $user = R::findOne('users', 'login = ?', [$login]);
+    $user->subscribe = $sub;
+    $user->sub_date = $date;
+    R::store($user);
+    return 200;
 }

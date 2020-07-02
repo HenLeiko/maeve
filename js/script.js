@@ -119,7 +119,7 @@ document.querySelector('#log').onclick = function logina() {
                 console.log(data);
                 return;
             }
-            document.querySelector('.error').innerHTML = data;
+            document.querySelector('.log-error').innerHTML = data;
         }
     });
      
@@ -127,10 +127,9 @@ document.querySelector('#log').onclick = function logina() {
 }
 
 
-document.querySelector('#trial').onclick = function trial() {
-    console.log('q');
+function trial() {
     let subscribe = 'trial';
-    
+
     let request = new XMLHttpRequest();
     let url = "upload.php";
 
@@ -138,13 +137,12 @@ document.querySelector('#trial').onclick = function trial() {
 
     request.open("POST", url, true);
     request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-     
+
     request.addEventListener("readystatechange", () => {
-    
-        if(request.readyState === 4 && request.status === 200) {       
-            console.log(request.responseText);
+
+        if(request.readyState === 4 && request.status === 200) {
             let data = request.responseText;
-            if (data === '200') {
+            if (data === 200) {
                 location.reload()
                 console.log(data);
                 return;
@@ -152,7 +150,95 @@ document.querySelector('#trial').onclick = function trial() {
             document.querySelector('.error').innerHTML = data;
         }
     });
-     
     request.send(params);
 }
+
+function standart() {
+    let subscribe = 'standart';
+    let request = new XMLHttpRequest();
+    let url = "upload.php";
+
+    let params = "subscribe=" + subscribe;
+
+    request.open("POST", url, true);
+    request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+    request.addEventListener("readystatechange", () => {
+
+        if(request.readyState === 4 && request.status === 200) {
+            let data = request.responseText;
+            if (data === 200) {
+                location.reload()
+                return;
+            }
+            document.querySelector('.error').innerHTML = data;
+        }
+    });
+    request.send(params);
+}
+
+function full() {
+    let subscribe = 'full';
+    let request = new XMLHttpRequest();
+    let url = "upload.php";
+
+    let params = "subscribe=" + subscribe;
+
+    request.open("POST", url, true);
+    request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+    request.addEventListener("readystatechange", () => {
+
+        if(request.readyState === 4 && request.status === 200) {
+            let data = request.responseText;
+            if (data === 200) {
+                location.reload()
+                return;
+            }
+            document.querySelector('.error').innerHTML = data;
+        }
+    });
+    request.send(params);
+}
+
+function stats() {
+
+    let pre = document.querySelector('.title');
+    let title = pre.textContent || pre.innerText;
+    let request = new XMLHttpRequest();
+    let url = "stats.php";
+    let params = "title=" + title;
+    request.open("POST", url, true);
+    request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    request.addEventListener("readystatechange", () => {
+        if(request.readyState === 4 && request.status === 200) {
+            let data = JSON.parse(request.responseText);
+            let view = [];
+            view.push(data.January, data.February, data.March, data.April, data.May, data.June, data.July);
+            var ctx = document.getElementById('myChart').getContext('2d');
+            var chart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+                    datasets: [{
+                        barPercentage: 0.5,
+                        barThickness: 6,
+                        maxBarThickness: 8,
+                        minBarLength: 2,
+                        label: 'Просмотры за год',
+                        backgroundColor: 'rgb(255, 99, 132)',
+                        borderColor: 'rgb(255, 99, 132)',
+                        data: view
+                    }]
+                },
+                // Configuration options go here
+                options: {}
+            });
+        }
+    });
+    request.send(params);
+}
+
+
+
 

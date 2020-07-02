@@ -10,6 +10,7 @@ foreach ($users as $new): ?>
     <td><?=$new['password']?></td>
     <td><?=$new['status']?></td>
     <td><?=$new['rol']?></td>
+    <td><?=$new['subscribe']?></td>
 </tr>
 <?php endforeach; ?>
     

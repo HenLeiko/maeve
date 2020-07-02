@@ -46,7 +46,7 @@ if (isset($_GET['exit'])) {
                         <div class="card__desc-cont">
                         <div class="card__desc">— 48 часов фильмов в HD</div>
                     </div>
-                        <input type="submit" id="trial" value="Оформить" class="card-buy">
+                        <input type="submit" onclick="trial();" value="Оформить" class="card-buy">
                     </div>
                 </div>
                 <div class="sub-cards__card">
@@ -60,7 +60,7 @@ if (isset($_GET['exit'])) {
                         <div class="card__desc">— 48 часов фильмов в HD</div>
                         <div class="card__desc">— Отустсвие рекламы</div>
                     </div>
-                        <input type="submit" name="simple" value="Оформить" class="card-buy">
+                        <input type="submit" onclick="standart();" name="simple" value="Оформить" class="card-buy">
                     </div>
                 </div>
                 <div class="sub-cards__card">
@@ -75,7 +75,7 @@ if (isset($_GET['exit'])) {
                             <div class="card__desc">— Отсутствие рекламы</div>
                             <div class="card__desc">— Загрузка видео</div>
                             </div>
-                        <input type="submit" name="full" value="Оформить" class="card-buy">
+                        <input type="submit" onclick="full();" name="full" value="Оформить" class="card-buy">
                     </div>
                 </div>
             </div>
@@ -85,3 +85,6 @@ if (isset($_GET['exit'])) {
     <?php include 'temp/footer.php'?>
     <script src="js/script.js"></script>
 
+</body>
+
+</html>
